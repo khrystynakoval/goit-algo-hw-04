@@ -1,16 +1,15 @@
-def main():
-    def parse_input(user_input):
+def parse_input(user_input):
         # Розбиваємо введений рядок на команду та аргументи
         cmd, *args = user_input.split()
         cmd = cmd.strip().lower()  # Перетворюємо команду на нижній регістр
         return cmd, args
 
-    def add_contact(contacts, name, phone):
+def add_contact(contacts, name, phone):
         # Додаємо контакт до словника контактів
         contacts[name] = phone
         return "Contact added."
 
-    def change_contact(contacts, name, phone):
+def change_contact(contacts, name, phone):
         # Змінюємо номер телефону контакту
         if name in contacts:
             contacts[name] = phone
@@ -18,20 +17,21 @@ def main():
         else:
             return "Contact not found."
 
-    def show_phone(contacts, name):
+def show_phone(contacts, name):
         # Показуємо номер телефону за іменем
         if name in contacts:
             return contacts[name]
         else:
             return "Contact not found."
 
-    def show_all(contacts):
+def show_all(contacts):
         # Показуємо усі контакти
         output = "Contacts:\n"
         for name, phone in contacts.items():
             output += f"{name}: {phone}\n"
         return output.strip()
-
+    
+def main():
     contacts = {}  # Словник для зберігання контактів
 
     print("Welcome to the assistant bot!")
